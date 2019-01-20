@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity implements GeterListener {
 
     @Override
     public void geterPattern(long[] pattern, boolean repeat) {
-        vibrator.vibrate(pattern, repeat ? 1 : -1);
+        vibrator.vibrate(pattern, repeat ? 0 : -1);
     }
 
     @Override

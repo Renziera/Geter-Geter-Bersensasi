@@ -36,12 +36,15 @@ public class MorseFragment extends Fragment {
     private View.OnClickListener start = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            teks.setEnabled(false);
-            buttonGetar.setText("Berhenti");
-            buttonGetar.setOnClickListener(stop);
             teksAsli = teks.getText().toString();
-            lanjut = true;
-            startMorseCode();
+            if(!teksAsli.isEmpty()){
+                teks.setEnabled(false);
+                buttonGetar.setText("Berhenti");
+                buttonGetar.setOnClickListener(stop);
+
+                lanjut = true;
+                startMorseCode();
+            }
         }
     };
     private View.OnClickListener stop = new View.OnClickListener() {
@@ -64,7 +67,6 @@ public class MorseFragment extends Fragment {
         geterListener = activity;
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_morse, container, false);
@@ -74,6 +76,12 @@ public class MorseFragment extends Fragment {
         buttonGetar.setOnClickListener(start);
 
         return view;
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        lanjut = false;
     }
 
     private int currentIndex;

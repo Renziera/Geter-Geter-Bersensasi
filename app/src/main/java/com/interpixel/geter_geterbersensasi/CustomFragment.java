@@ -30,6 +30,7 @@ public class CustomFragment extends Fragment {
             for (EditText editText : customValue){
                 editText.setEnabled(false);
             }
+            repeat.setEnabled(false);
             buttonGetar.setText("Berhenti");
             buttonGetar.setOnClickListener(stop);
             totalTime = 0;
@@ -64,6 +65,7 @@ public class CustomFragment extends Fragment {
             for (EditText editText : customValue){
                 editText.setEnabled(true);
             }
+            repeat.setEnabled(true);
             buttonGetar.setText("Getar");
             buttonGetar.setOnClickListener(start);
         }
