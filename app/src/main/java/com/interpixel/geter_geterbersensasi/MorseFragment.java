@@ -1,10 +1,15 @@
 package com.interpixel.geter_geterbersensasi;
 
 
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.os.Handler;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +26,13 @@ public class MorseFragment extends Fragment {
     private Button buttonGetar;
     private EditText teks;
     private String teksAsli;
+    private Handler handler = new Handler();
+    private Runnable nextChar = new Runnable() {
+        @Override
+        public void run() {
+            parseMorse();
+        }
+    };
     private View.OnClickListener start = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -28,6 +40,8 @@ public class MorseFragment extends Fragment {
             buttonGetar.setText("Berhenti");
             buttonGetar.setOnClickListener(stop);
             teksAsli = teks.getText().toString();
+            lanjut = true;
+            startMorseCode();
         }
     };
     private View.OnClickListener stop = new View.OnClickListener() {
@@ -37,6 +51,8 @@ public class MorseFragment extends Fragment {
             teks.setEnabled(true);
             buttonGetar.setText("Getar");
             buttonGetar.setOnClickListener(start);
+            teks.setText(teksAsli);
+            lanjut = false;
         }
     };
 
@@ -55,8 +71,51 @@ public class MorseFragment extends Fragment {
 
         teks = view.findViewById(R.id.teks);
         buttonGetar = view.findViewById(R.id.buttonGetar);
+        buttonGetar.setOnClickListener(start);
 
         return view;
+    }
+
+    private int currentIndex;
+    private boolean lanjut;
+    private int teksLength;
+
+    private void startMorseCode(){
+        currentIndex = 0;
+        teksLength = teksAsli.length();
+        handler.post(nextChar);
+    }
+
+    private void parseMorse(){
+        long[] morse = toMorse(teksAsli.charAt(currentIndex));
+        long duration = 0;
+        for (long l : morse) {
+            duration = duration + l;
+        }
+        geterListener.geterMorse(morse);
+        highlightText();
+        currentIndex++;
+        if(lanjut && currentIndex < teksLength){
+            handler.postDelayed(nextChar, duration);
+        }
+        if (currentIndex == teksLength){
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    teks.setEnabled(true);
+                    buttonGetar.setText("Getar");
+                    buttonGetar.setOnClickListener(start);
+                    teks.setText(teksAsli);
+                    lanjut = false;
+                }
+            }, duration);
+        }
+    }
+
+    private void highlightText(){
+        Spannable spannable = new SpannableString(teksAsli);
+        spannable.setSpan(new ForegroundColorSpan(Color.BLUE), currentIndex, currentIndex+1, 0);
+        teks.setText(spannable);
     }
 
     /**

@@ -23,7 +23,7 @@ public class CustomFragment extends Fragment {
     private long[] pattern = new long[9];
     private Button buttonGetar;
     private CheckBox repeat;
-    private int totalTime;
+    private long totalTime;
     private View.OnClickListener start = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -39,7 +39,7 @@ public class CustomFragment extends Fragment {
                 }else{
                     pattern[i+1] = Long.parseLong(customValue[i].getText().toString());
                 }
-                totalTime = (int) (totalTime + pattern[i+1]);
+                totalTime = totalTime + pattern[i+1];
             }
             if(!repeat.isChecked()){
                 Handler handler = new Handler();
