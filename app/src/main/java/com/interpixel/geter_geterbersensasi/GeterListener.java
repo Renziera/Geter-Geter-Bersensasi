@@ -8,4 +8,6 @@ public interface GeterListener {
 
     void geterPattern(long[] pattern, boolean repeat);
 
+    void geterMorse(long[] morse);
+
 }

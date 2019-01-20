@@ -89,8 +89,135 @@ public class MorseFragment extends Fragment {
                 break;
             case 'C':
             case 'c':
-                code = new long[]{0, dah, gap, };
+                code = new long[]{0, dah, gap, dit, gap, dah, gap, dit, end};
                 break;
+            case 'D':
+            case 'd':
+                code = new long[]{0, dah, gap, dit, gap, dit, end};
+                break;
+            case 'E':
+            case 'e':
+                code = new long[]{0, dit, end};
+                break;
+            case 'F':
+            case 'f':
+                code = new long[]{0, dit, gap, dit, gap, dah, gap, dit, end};
+                break;
+            case 'G':
+            case 'g':
+                code = new long[]{0, dah, gap, dah, gap, dit, end};
+                break;
+            case 'H':
+            case 'h':
+                code = new long[]{0, dit, gap, dit, gap, dit, gap, dit, end};
+                break;
+            case 'I':
+            case 'i':
+                code = new long[]{0, dit, gap, dit, end};
+                break;
+            case 'J':
+            case 'j':
+                code = new long[]{0, dit, gap, dah, gap, dah, gap, dah, end};
+                break;
+            case 'K':
+            case 'k':
+                code = new long[]{0, dah, gap, dit, gap, dah, end};
+                break;
+            case 'L':
+            case 'l':
+                code = new long[]{0, dit, gap, dah, gap, dit, gap, dit, end};
+                break;
+            case 'M':
+            case 'm':
+                code = new long[]{0, dah, gap, dah, end};
+                break;
+            case 'N':
+            case 'n':
+                code = new long[]{0, dah, gap, dit, end};
+                break;
+            case 'O':
+            case 'o':
+                code = new long[]{0, dah, gap, dah, gap, dah, end};
+                break;
+            case 'P':
+            case 'p':
+                code = new long[]{0, dit, gap, dah, gap, dah, gap, dit, end};
+                break;
+            case 'Q':
+            case 'q':
+                code = new long[]{0, dah, gap, dah, gap, dit, gap, dah, end};
+                break;
+            case 'R':
+            case 'r':
+                code = new long[]{0, dit, gap, dah, gap, dit, end};
+                break;
+            case 'S':
+            case 's':
+                code = new long[]{0, dit, gap, dit, gap, dit, end};
+                break;
+            case 'T':
+            case 't':
+                code = new long[]{0, dah, end};
+                break;
+            case 'U':
+            case 'u':
+                code = new long[]{0, dit, gap, dit, gap, dah, end};
+                break;
+            case 'V':
+            case 'v':
+                code = new long[]{0, dit, gap, dit, gap, dit, gap, dah, end};
+                break;
+            case 'W':
+            case 'w':
+                code = new long[]{0, dit, gap, dah, gap, dah, end};
+                break;
+            case 'X':
+            case 'x':
+                code = new long[]{0, dah, gap, dit, gap, dit, gap, dah, end};
+                break;
+            case 'Y':
+            case 'y':
+                code = new long[]{0, dah, gap, dit, gap, dah, gap, dah, end};
+                break;
+            case 'Z':
+            case 'z':
+                code = new long[]{0, dah, gap, dah, gap, dit, gap, dit, end};
+                break;
+            case '1':
+                code = new long[]{0, dit, gap, dah, gap, dah, gap, dah, gap, dah, end};
+                break;
+            case '2':
+                code = new long[]{0, dit, gap, dit, gap, dah, gap, dah, gap, dah, end};
+                break;
+            case '3':
+                code = new long[]{0, dit, gap, dit, gap, dit, gap, dah, gap, dah, end};
+                break;
+            case '4':
+                code = new long[]{0, dit, gap, dit, gap, dit, gap, dit, gap, dah, end};
+                break;
+            case '5':
+                code = new long[]{0, dit, gap, dit, gap, dit, gap, dit, gap, dit, end};
+                break;
+            case '6':
+                code = new long[]{0, dah, gap, dit, gap, dit, gap, dit, gap, dit, end};
+                break;
+            case '7':
+                code = new long[]{0, dah, gap, dah, gap, dit, gap, dit, gap, dit, end};
+                break;
+            case '8':
+                code = new long[]{0, dah, gap, dah, gap, dah, gap, dit, gap, dit, end};
+                break;
+            case '9':
+                code = new long[]{0, dah, gap, dah, gap, dah, gap, dah, gap, dit, end};
+                break;
+            case '0':
+                code = new long[]{0, dah, gap, dah, gap, dah, gap, dah, gap, dah, end};
+                break;
+            case ' ':
+                code = new long[]{space};
+                break;
+            default:
+                code = new long[]{space};
         }
 
         return code;

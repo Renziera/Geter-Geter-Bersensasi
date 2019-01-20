@@ -91,4 +91,9 @@ public class MainActivity extends AppCompatActivity implements GeterListener {
     public void geterPattern(long[] pattern, boolean repeat) {
         vibrator.vibrate(pattern, repeat ? 1 : -1);
     }
+
+    @Override
+    public void geterMorse(long[] morse) {
+        vibrator.vibrate(morse, -1);
+    }
 }
